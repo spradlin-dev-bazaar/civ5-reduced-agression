@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Deploy" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Default</Configuration>
+    <ProjectGuid>{4274e3af-5455-49a8-8537-72bcbaf409d5}</ProjectGuid>
+    <Name>Reduced Aggression (Bazaar)</Name>
+    <Guid>bf4a4ab4-9a47-40b6-a365-7ad2b199f162</Guid>
+    <ModVersion>1</ModVersion>
+    <Stability>Experimental</Stability>
+    <Teaser>No war between friends, and AI civilizations on King and above about as eager to attack you as on Prince.</Teaser>
+    <Description>Two rules against sudden wars. (1) A Declaration of Friendship means peace: nobody, AI or human, can declare war on a civilization that has an active friendship with anyone on their team. Denouncing someone ends the friendship, and war is only possible a few turns after a denounce (5 turns on Standard speed, longer on slower speeds), so a former friend always gets a warning first. (2) On King and above, AI civilizations build their armies more cheaply, so you look weak to them and they attack you more often. This mod has them judge your strength roughly as they would on Prince when deciding whether to go to war, so they are about as eager to attack you as on Prince. Their bonuses are unchanged, and once at war they fight at full strength. Wars between AI civilizations are unaffected. Requires Brave New World and Bazaar.</Description>
+    <Authors>maddachshund (spradlin-dev)</Authors>
+    <SpecialThanks>
+    </SpecialThanks>
+    <HideSetupGame>false</HideSetupGame>
+    <AffectsSavedGames>true</AffectsSavedGames>
+    <MinCompatibleSaveVersion>0</MinCompatibleSaveVersion>
+    <SupportsSinglePlayer>true</SupportsSinglePlayer>
+    <SupportsMultiplayer>false</SupportsMultiplayer>
+    <SupportsHotSeat>false</SupportsHotSeat>
+    <SupportsMac>false</SupportsMac>
+    <ReloadAudioSystem>false</ReloadAudioSystem>
+    <ReloadLandmarkSystem>false</ReloadLandmarkSystem>
+    <ReloadStrategicViewSystem>false</ReloadStrategicViewSystem>
+    <ReloadUnitSystem>false</ReloadUnitSystem>
+    <AssemblyName>ReducedAggression</AssemblyName>
+    <RootNamespace>ReducedAggression</RootNamespace>
+    <ModDependencies>
+      <Association>
+        <Type>Dlc</Type>
+        <Name>Expansion - Brave New World</Name>
+        <Id>6DA07636-4123-4018-B643-6575B4EC336B</Id>
+        <MinVersion>0</MinVersion>
+        <MaxVersion>999</MaxVersion>
+      </Association>
+      <Association>
+        <Type>Mod</Type>
+        <Name>Bazaar Multi-DLL Mod Loader</Name>
+        <Id>b829cadb-b570-46c5-a0ba-419434eb6398</Id>
+        <MinVersion>0</MinVersion>
+        <MaxVersion>999</MaxVersion>
+      </Association>
+    </ModDependencies>
+    <ModReferences />
+    <ModBlockers>
+      <Association>
+        <Type>Mod</Type>
+        <Name>Reduced Aggression</Name>
+        <Id>12e96e01-8f98-43fe-882a-47badee4d41e</Id>
+        <MinVersion>0</MinVersion>
+        <MaxVersion>999</MaxVersion>
+      </Association>
+    </ModBlockers>
+    <ModActions>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>ReducedAggression.sql</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>FriendshipRule.xml</FileName>
+      </Action>
+    </ModActions>
+    <ModContent>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>FriendshipRule</Name>
+        <Description>Loads the friendship rule</Description>
+        <FileName>FriendshipRule.lua</FileName>
+      </Content>
+    </ModContent>
+    <ModProperties>
+    </ModProperties>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Package Only' ">
+    <PackageMod>true</PackageMod>
+    <DeployMod>false</DeployMod>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Deploy Only' ">
+    <PackageMod>false</PackageMod>
+    <DeployMod>true</DeployMod>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="ReducedAggression.dll">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="ReducedAggression.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="FriendshipRule.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="FriendshipRule.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Firaxis\ModBuddy\Civ5Mod.targets" />
+</Project>

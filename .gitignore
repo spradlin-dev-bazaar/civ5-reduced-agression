@@ -1,0 +1,8 @@
+Build/
+Packages/
+src/out/
+mod/ReducedAggression.dll
+*.ncb
+*.suo
+*.user
+*.civ5suo
