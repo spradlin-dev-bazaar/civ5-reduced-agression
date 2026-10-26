@@ -3,6 +3,7 @@
 
 #include "CivHooks.h"
 #include "CivPluginApi.h"
+#include "PluginVersion.h"
 
 #include <stdarg.h>
 #include <stdio.h>
@@ -146,7 +147,7 @@ PLUGIN_EXPORT bool CivPluginEntry(const CivHostInfo* host, CivPluginInfo* plugin
 {
 	s_host = host;
 	plugin->name = "Reduced Aggression (Bazaar)";
-	plugin->version = "1";
+	plugin->version = PLUGIN_VERSION;
 
 	Hook(CivHooks::CvDiplomacyAI_DoUpdateOnePlayerMilitaryStrength::ID, CIV_HOOK_BEFORE, (void*)&BeforeRatePlayer,
 		"before CvDiplomacyAI::DoUpdateOnePlayerMilitaryStrength");
