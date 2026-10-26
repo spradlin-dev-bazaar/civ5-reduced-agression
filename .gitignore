@@ -1,8 +1,18 @@
+# Output of build.cmd and tools/release.py, whose publish step needs a clean tree
 Build/
 Packages/
 src/out/
 mod/ReducedAggression.dll
+
+# Visual Studio 2008 and ModBuddy per-user files
 *.ncb
 *.suo
 *.user
 *.civ5suo
+
+__pycache__/
+
+# A global gitignore may skip .claude/; the release skill here is shared.
+!/.claude/
+/.claude/*
+!/.claude/skills/

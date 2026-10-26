@@ -30,6 +30,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				OutputFile="$(OutDir)\ReducedAggression.dll"
+				GenerateMapFile="true"
 			/>
 		</Configuration>
 	</Configurations>
