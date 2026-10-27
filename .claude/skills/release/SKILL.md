@@ -38,7 +38,7 @@ Ask the user to install the package from `Build\release\<version>`, not from the
 - the Plugins screen shows "Reduced Aggression (Bazaar) <version>";
 - in a game on King or above, `Bazaar.log` says that AI civilizations rate human players in peacetime at more than 100% of their real strength;
 - you cannot declare war on an AI civilization you have a Declaration of Friendship with;
-- a save made with the previous release still loads (not for the first release).
+- a save made with the previous release still loads (not for the first release). When the Bazaar line changed, read that Bazaar release's notes first: if they say older saves may not load, skip this check and say so in the notes.
 
 ## 5. Notes
 

@@ -5,10 +5,10 @@
     <ProjectGuid>{4274e3af-5455-49a8-8537-72bcbaf409d5}</ProjectGuid>
     <Name>Reduced Aggression (Bazaar)</Name>
     <Guid>bf4a4ab4-9a47-40b6-a365-7ad2b199f162</Guid>
-    <ModVersion>1</ModVersion>
+    <ModVersion>2</ModVersion>
     <Stability>Experimental</Stability>
     <Teaser>No war between friends, and AI civilizations on King and above about as eager to attack you as on Prince.</Teaser>
-    <Description>Two rules against sudden wars. (1) A Declaration of Friendship means peace: nobody, AI or human, can declare war on a civilization that has an active friendship with anyone on their team. Denouncing someone ends the friendship, and war is only possible a few turns after a denounce (5 turns on Standard speed, longer on slower speeds), so a former friend always gets a warning first. (2) On King and above, AI civilizations build their armies more cheaply, so you look weak to them and they attack you more often. This mod has them judge your strength roughly as they would on Prince when deciding whether to go to war, so they are about as eager to attack you as on Prince. Their bonuses are unchanged, and once at war they fight at full strength. Wars between AI civilizations are unaffected. Needs Brave New World. Requires Bazaar 0.4.0 or newer.</Description>
+    <Description>Two rules against sudden wars. (1) A Declaration of Friendship means peace: nobody, AI or human, can declare war on a civilization that has an active friendship with anyone on their team. Denouncing someone ends the friendship, and war is only possible a few turns after a denounce (5 turns on Standard speed, longer on slower speeds), so a former friend always gets a warning first. (2) On King and above, AI civilizations build their armies more cheaply, so you look weak to them and they attack you more often. This mod has them judge your strength roughly as they would on Prince when deciding whether to go to war, so they are about as eager to attack you as on Prince. Their bonuses are unchanged, and once at war they fight at full strength. Wars between AI civilizations are unaffected. Needs Brave New World. Requires Bazaar 0.5.0 or newer.</Description>
     <Authors>maddachshund (spradlin-dev)</Authors>
     <SpecialThanks>
     </SpecialThanks>

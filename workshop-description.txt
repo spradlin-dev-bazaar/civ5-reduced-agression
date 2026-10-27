@@ -5,4 +5,4 @@ Two rules against sudden wars.
 
 [b]Prince-level aggression on harder levels.[/b] On King and above, AI civilizations build their armies more cheaply, so you look weak to them and they attack you more often. This mod has them judge your strength roughly as they would on Prince when deciding whether to go to war, so they are about as eager to attack you as on Prince. Their bonuses are unchanged, and once at war they fight at full strength. Wars between AI civilizations are unaffected.
 
-Needs Brave New World. Requires Bazaar 0.4.0 or newer. Subscribe to Bazaar Multi-DLL Mod Loader and Bazaar - VMC Bootstrap (required) too.
+Needs Brave New World. Requires Bazaar 0.5.0 or newer. Subscribe to Bazaar Multi-DLL Mod Loader and Bazaar - VMC Bootstrap (required) too.

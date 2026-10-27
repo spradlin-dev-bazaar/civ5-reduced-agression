@@ -31,11 +31,6 @@ static void Check(int result, const char* hook)
 		Log("could not register %s (result %d)", hook, result);
 }
 
-static void Hook(int hookId, int kind, void* hook, const char* name)
-{
-	Check(s_host->RegisterHook(s_host->pluginIndex, hookId, kind, hook), name);
-}
-
 static PlayerTypes s_rater = NO_PLAYER;
 static int s_humanStrengthPercent = 100;
 
@@ -149,26 +144,26 @@ PLUGIN_EXPORT bool CivPluginEntry(const CivHostInfo* host, CivPluginInfo* plugin
 	plugin->name = "Reduced Aggression (Bazaar)";
 	plugin->version = PLUGIN_VERSION;
 
-	Hook(CivHooks::CvDiplomacyAI_DoUpdateOnePlayerMilitaryStrength::ID, CIV_HOOK_BEFORE, (void*)&BeforeRatePlayer,
+	Check(CivRegisterBefore<CivHooks::CvDiplomacyAI_DoUpdateOnePlayerMilitaryStrength>(host, &BeforeRatePlayer),
 		"before CvDiplomacyAI::DoUpdateOnePlayerMilitaryStrength");
-	Hook(CivHooks::CvDiplomacyAI_DoUpdateOnePlayerMilitaryStrength::ID, CIV_HOOK_AFTER, (void*)&AfterRatePlayer,
+	Check(CivRegisterAfter<CivHooks::CvDiplomacyAI_DoUpdateOnePlayerMilitaryStrength>(host, &AfterRatePlayer),
 		"after CvDiplomacyAI::DoUpdateOnePlayerMilitaryStrength");
-	Hook(CivHooks::CvDiplomacyAI_DoUpdateOnePlayerEconomicStrength::ID, CIV_HOOK_BEFORE, (void*)&BeforeRatePlayer,
+	Check(CivRegisterBefore<CivHooks::CvDiplomacyAI_DoUpdateOnePlayerEconomicStrength>(host, &BeforeRatePlayer),
 		"before CvDiplomacyAI::DoUpdateOnePlayerEconomicStrength");
-	Hook(CivHooks::CvDiplomacyAI_DoUpdateOnePlayerEconomicStrength::ID, CIV_HOOK_AFTER, (void*)&AfterRatePlayer,
+	Check(CivRegisterAfter<CivHooks::CvDiplomacyAI_DoUpdateOnePlayerEconomicStrength>(host, &AfterRatePlayer),
 		"after CvDiplomacyAI::DoUpdateOnePlayerEconomicStrength");
-	Hook(CivHooks::CvDiplomacyAI_DoUpdateOnePlayerTargetValue::ID, CIV_HOOK_BEFORE, (void*)&BeforeRatePlayer,
+	Check(CivRegisterBefore<CivHooks::CvDiplomacyAI_DoUpdateOnePlayerTargetValue>(host, &BeforeRatePlayer),
 		"before CvDiplomacyAI::DoUpdateOnePlayerTargetValue");
-	Hook(CivHooks::CvDiplomacyAI_DoUpdateOnePlayerTargetValue::ID, CIV_HOOK_AFTER, (void*)&AfterRatePlayer,
+	Check(CivRegisterAfter<CivHooks::CvDiplomacyAI_DoUpdateOnePlayerTargetValue>(host, &AfterRatePlayer),
 		"after CvDiplomacyAI::DoUpdateOnePlayerTargetValue");
-	Hook(CivHooks::CvDiplomacyAI_DoUpdateMilitaryThreats::ID, CIV_HOOK_BEFORE, (void*)&BeforeRateThreats,
+	Check(CivRegisterBefore<CivHooks::CvDiplomacyAI_DoUpdateMilitaryThreats>(host, &BeforeRateThreats),
 		"before CvDiplomacyAI::DoUpdateMilitaryThreats");
-	Hook(CivHooks::CvDiplomacyAI_DoUpdateMilitaryThreats::ID, CIV_HOOK_AFTER, (void*)&AfterRateThreats,
+	Check(CivRegisterAfter<CivHooks::CvDiplomacyAI_DoUpdateMilitaryThreats>(host, &AfterRateThreats),
 		"after CvDiplomacyAI::DoUpdateMilitaryThreats");
 
-	Hook(CivHooks::CvPlayer_GetMilitaryMight::ID, CIV_HOOK_AFTER, (void*)&AfterPlayerStrength, "after CvPlayer::GetMilitaryMight");
-	Hook(CivHooks::CvPlayer_GetEconomicMight::ID, CIV_HOOK_AFTER, (void*)&AfterPlayerStrength, "after CvPlayer::GetEconomicMight");
-	Hook(CivHooks::CvPlayer_getPower::ID, CIV_HOOK_AFTER, (void*)&AfterPlayerStrength, "after CvPlayer::getPower");
-	Hook(CivHooks::CvCity_GetPower::ID, CIV_HOOK_AFTER, (void*)&AfterCityStrength, "after CvCity::GetPower");
+	Check(CivRegisterAfter<CivHooks::CvPlayer_GetMilitaryMight>(host, &AfterPlayerStrength), "after CvPlayer::GetMilitaryMight");
+	Check(CivRegisterAfter<CivHooks::CvPlayer_GetEconomicMight>(host, &AfterPlayerStrength), "after CvPlayer::GetEconomicMight");
+	Check(CivRegisterAfter<CivHooks::CvPlayer_getPower>(host, &AfterPlayerStrength), "after CvPlayer::getPower");
+	Check(CivRegisterAfter<CivHooks::CvCity_GetPower>(host, &AfterCityStrength), "after CvCity::GetPower");
 	return true;
 }
